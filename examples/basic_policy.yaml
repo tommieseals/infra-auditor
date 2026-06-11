@@ -1,0 +1,27 @@
+# Basic Security Policy
+targets:
+  - host: localhost
+
+checks:
+  firewall:
+    enabled: true
+    severity: high
+  stealth_mode:
+    enabled: true
+    severity: medium
+  ssh_hardening:
+    enabled: true
+    severity: high
+  disk_encryption:
+    enabled: true
+    severity: critical
+  open_ports:
+    enabled: true
+    params:
+      allowed_ports: [22, 80, 443, 8080]
+      disallowed_ports: [21, 23, 3389]
+  services:
+    enabled: false
+  security_updates:
+    enabled: true
+    severity: high

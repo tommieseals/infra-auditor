@@ -1,0 +1,31 @@
+# Production Environment Policy
+targets:
+  - host: prod-server.internal
+    username: sysadmin
+    key_file: ~/.ssh/prod_key
+
+checks:
+  firewall:
+    enabled: true
+    severity: critical
+  ssh_hardening:
+    enabled: true
+    severity: critical
+  disk_encryption:
+    enabled: true
+    severity: critical
+  open_ports:
+    enabled: true
+    severity: high
+    params:
+      allowed_ports: [22, 443]
+      disallowed_ports: [21, 23, 3306, 3389, 5432, 6379]
+  services:
+    enabled: true
+    severity: high
+    params:
+      required: [sshd]
+      forbidden: [telnetd]
+  security_updates:
+    enabled: true
+    severity: critical

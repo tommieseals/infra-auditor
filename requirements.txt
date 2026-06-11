@@ -1,0 +1,2 @@
+# Runtime dependencies (kept in sync with pyproject.toml [project].dependencies)
+PyYAML>=6.0
